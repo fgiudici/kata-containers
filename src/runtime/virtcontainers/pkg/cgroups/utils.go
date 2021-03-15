@@ -16,7 +16,7 @@ import (
 	"golang.org/x/sys/unix"
 )
 
-// prepend a kata specific string to oci cgroup path to
+// prepend a kata specific string to oci cgroup path to !
 // form a different cgroup path, thus cAdvisor couldn't
 // find kata containers cgroup path on host to prevent it
 // from grabbing the stats data.
@@ -61,7 +61,7 @@ func ValidCgroupPath(path string, systemdCgroup bool) (string, error) {
 
 func IsSystemdCgroup(cgroupPath string) bool {
 	// systemd cgroup path: slice:prefix:name
-	re := regexp.MustCompile(`([[:alnum:]]|\.)+:([[:alnum:]]|\.)+:([[:alnum:]]|\.)+`)
+	re := regexp.MustCompile(`([[:alnum:]]|\.|_|-)+:([[:alnum:]]|\.|_|-)+:([[:alnum:]]|\.|_|-)+`)
 	found := re.FindStringIndex(cgroupPath)
 
 	// if found string is equal to cgroupPath then

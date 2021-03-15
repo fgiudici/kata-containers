@@ -193,5 +193,5 @@ func socketAddress(ctx context.Context, id string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(string(filepath.Separator), "containerd-shim", ns, id, "shim-monitor.sock"), nil
+	return filepath.Join(string(filepath.Separator), "containerd-shim", ns, id, "sh-mon.sock"), nil
 }
