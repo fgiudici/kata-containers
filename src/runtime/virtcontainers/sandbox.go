@@ -2190,7 +2190,7 @@ func (s *Sandbox) setupSandboxCgroup() error {
 	if err != nil {
 		return fmt.Errorf("Invalid cgroup path: %v", err)
 	}
-	s.Logger().Debugf("CGROUP is : %v\n", s.state.CgroupPath)
+	s.Logger().Errorf("CGROUP is : %v\n", s.state.CgroupPath)
 	runtimePid := os.Getpid()
 	// Add the runtime to the Kata sandbox cgroup
 	if err = s.cgroupMgr.Add(runtimePid); err != nil {
@@ -2205,6 +2205,7 @@ func (s *Sandbox) setupSandboxCgroup() error {
 	}
 
 	s.state.CgroupPaths = s.cgroupMgr.GetPaths()
+	s.Logger().Errorf("%v", s.state.CgroupPaths)
 
 	if err = s.cgroupMgr.Apply(); err != nil {
 		return fmt.Errorf("Could not constrain cgroup: %v", err)
