@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: kata-deploy
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: kata-deploy
+  template:
+    metadata:
+      labels:
+        name: kata-deploy
+    spec:
+      serviceAccountName: kata-deploy-sa
+      hostPID: true
+      containers:
+        - name: kube-kata
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          lifecycle:
+            preStop:
+              exec:
+                command: ["bash", "-c", "/opt/kata-artifacts/scripts/kata-deploy.sh cleanup"]
+          command: ["bash", "-c", "/opt/kata-artifacts/scripts/kata-deploy.sh install"]
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: DEBUG
+              value: "false"
+            - name: SHIMS
+              value: "clh dragonball fc qemu qemu-nvidia-gpu qemu-sev qemu-snp qemu-tdx"
+            - name: DEFAULT_SHIM
+              value: "qemu"
+            - name: CREATE_RUNTIMECLASSES
+              value: "false"
+            - name: CREATE_DEFAULT_RUNTIMECLASS
+              value: "false"
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: crio-conf
+              mountPath: /etc/crio/
+            - name: containerd-conf
+              mountPath: /etc/containerd/
+            - name: kata-artifacts
+              mountPath: /opt/kata/
+            - name: local-bin
+              mountPath: /usr/local/bin/
+      volumes:
+        - name: crio-conf
+          hostPath:
+            path: /etc/crio/
+        - name: containerd-conf
+          hostPath:
+            {{- if eq .Values.kubernetes.distribution "k3s" }}
+            path: /var/lib/rancher/k3s/agent/etc/containerd/
+            {{- else if eq .Values.kubernetes.distribution "rke2" }}
+            path: /var/lib/rancher/rke2/agent/etc/containerd/
+            {{- else if eq .Values.kubernetes.distribution "k0s" }}
+            path: /etc/k0s/containerd.d/
+            {{- else }}
+            path: /etc/containerd/
+            {{- end }}
+        - name: kata-artifacts
+          hostPath:
+            path: /opt/kata/
+            type: DirectoryOrCreate
+        - name: local-bin
+          hostPath:
+            path: /usr/local/bin/
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate

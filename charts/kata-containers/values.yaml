@@ -1,0 +1,8 @@
+image:
+  repository: quay.io/kata-containers/kata-deploy
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+kubernetes:
+  # Allowed distributions are k3s, rke2, k0s and vanilla
+  distribution: "vanilla"

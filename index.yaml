@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  kata-containers:
+  - apiVersion: v2
+    appVersion: 3.2.0
+    created: "2023-11-08T19:33:29.284375534+01:00"
+    description: Kata Containers Helm chart for Kubernetes
+    digest: 1ce52f7c940158905be3ca463465fbf920c74532901631a3c0d43dccd2aa5b0c
+    icon: https://avatars.githubusercontent.com/u/3328995https://avatars.githubusercontent.com/u/332899522
+    name: kata-containers
+    type: application
+    urls:
+    - https://fgiudici.github.io/assets/kata-containers-0.1.0+up3.2.0.tgz
+    version: 0.1.0+up3.2.0
+generated: "2023-11-08T19:33:29.284123799+01:00"
