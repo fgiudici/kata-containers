@@ -6,3 +6,11 @@ image:
 kubernetes:
   # Allowed distributions are k3s, rke2, k0s and vanilla
   distribution: "vanilla"
+
+debug: "false"
+
+kata:
+  shims: "clh dragonball fc qemu qemu-nvidia-gpu qemu-sev qemu-snp qemu-tdx"
+  defaultShim: "qemu"
+  createRuntimeClasses: "true"
+  createDefaultRuntimeClass: "true"
