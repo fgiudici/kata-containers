@@ -17,7 +17,7 @@ entries:
     created: "2023-11-09T19:09:21.385850539+01:00"
     description: Kata Containers Helm chart for Kubernetes
     digest: 7ea28e9a5d283d23584045973f91f50b6eef3eacce997b5fa77df9e14320fb4c
-    icon: https://avatars.githubusercontent.com/u/3328995https://avatars.githubusercontent.com/u/332899522
+    icon: https://raw.githubusercontent.com/kata-containers/www.katacontainers.io/main/static/img/android-chrome-256x256.png
     name: kata-containers
     type: application
     urls:
@@ -28,7 +28,7 @@ entries:
     created: "2023-11-09T19:09:21.38602594+01:00"
     description: Kata Containers Helm chart for Kubernetes
     digest: 495e2f42a0aff8cc040eeaa20f11d39f4439b1a21d3758cfe53218ed1d6dff03
-    icon: https://avatars.githubusercontent.com/u/3328995https://avatars.githubusercontent.com/u/332899522
+    icon: https://raw.githubusercontent.com/kata-containers/www.katacontainers.io/main/static/img/android-chrome-256x256.png
     name: kata-containers
     type: application
     urls:
@@ -39,7 +39,7 @@ entries:
     created: "2023-11-09T19:09:21.385691268+01:00"
     description: Kata Containers Helm chart for Kubernetes
     digest: 1ce52f7c940158905be3ca463465fbf920c74532901631a3c0d43dccd2aa5b0c
-    icon: https://avatars.githubusercontent.com/u/3328995https://avatars.githubusercontent.com/u/332899522
+    icon: https://raw.githubusercontent.com/kata-containers/www.katacontainers.io/main/static/img/android-chrome-256x256.png
     name: kata-containers
     type: application
     urls:
