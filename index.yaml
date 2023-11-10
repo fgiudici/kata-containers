@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   kata-containers:
   - apiVersion: v2
+    appVersion: 3.3.0-alpha0
+    created: "2023-11-10T15:20:54.800723756+01:00"
+    description: Kata Containers Helm chart for Kubernetes
+    digest: d1cee71e22ebf437dc11b323d53aef6e6c543ec2d665219e217b2cb84d822499
+    icon: https://raw.githubusercontent.com/kata-containers/www.katacontainers.io/main/static/img/android-chrome-256x256.png
+    name: kata-containers
+    type: application
+    urls:
+    - https://katacharts.kubepod.cloud/assets/kata-containers-0.5.0+up3.3.0-alpha0.tgz
+    version: 0.5.0+up3.3.0-alpha0
+  - apiVersion: v2
     appVersion: 3.2.0
     created: "2023-11-10T14:56:53.430316689+01:00"
     description: Kata Containers Helm chart for Kubernetes
@@ -12,4 +23,4 @@ entries:
     urls:
     - https://katacharts.kubepod.cloud/assets/kata-containers-0.4.0+up3.2.0.tgz
     version: 0.4.0+up3.2.0
-generated: "2023-11-10T14:56:53.429819781+01:00"
+generated: "2023-11-10T15:20:54.800174719+01:00"
