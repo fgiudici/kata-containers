@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-kata
+spec:
+  selector:
+    matchLabels:
+      run: nginx-kata
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: nginx-kata
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+      runtimeClassName: kata
