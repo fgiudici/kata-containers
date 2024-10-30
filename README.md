@@ -8,11 +8,11 @@ The [Kata Containers project](https://katacontainers.io/) provides the [kata-dep
 
 During the hackweek the kata-deploy resources have been adapted in an helm chart.
 
-**The resulting chart has been released in an Helm Repo at https://katacharts.kubepod.cloud**.
+**The resulting chart has been released in an Helm Repo at https://fgiudici.github.io/kata-containers/**.
 
 Add it to Rancher as an App HTTP Repository or add to your helm repositories with:
 
-$> helm repo add kata-containers https://katacharts.kubepod.cloud
+$> helm repo add kata-containers https://fgiudici.github.io/kata-containers/
 
 Install it via the Rancher Marketplace or via the helm command line, but **be sure to set the right kind of kubernetes cluster you are using** (chart value *kubernetes.distribution*).
 Allowed options are vanilla, **k3s**, **rke2** or k0s.
